@@ -1,0 +1,102 @@
+/* src/components/FullScreenNav.css */
+@keyframes fadeInOverlay {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideInLink {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fullscreen-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(10, 10, 10, 0.97); /* Dark, slightly transparent background */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 1003; /* Below trigger if it needs to animate to X, but above page */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transform-origin: center center;
+    animation: fadeInOverlay 0.5s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+.fullscreen-nav.open {
+    opacity: 1;
+}
+
+/* Optional: If you add particles to the nav background */
+/*
+.nav-particles-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; // Behind nav content
+}
+*/
+
+.fullscreen-nav .nav-content {
+    text-align: center;
+}
+
+.fullscreen-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.fullscreen-nav ul li {
+    opacity: 0; /* Initially hidden for staggered animation */
+    animation: slideInLink 0.6s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+    margin: 20px 0; /* Spacing between links */
+}
+
+.fullscreen-nav ul li a {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem; /* Large, impactful links */
+    font-weight: 700;
+    color: #f5f5f5;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: inline-block;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.fullscreen-nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    display: block;
+    margin-top: 5px;
+    right: 0;
+    background: #61dafb; /* Accent color */
+    transition: width 0.4s ease;
+    -webkit-transition: width 0.4s ease;
+}
+
+.fullscreen-nav ul li a:hover {
+    color: #61dafb; /* Highlight color */
+}
+
+.fullscreen-nav ul li a:hover::after {
+    width: 100%;
+    left: 0;
+    background: #61dafb;
+}
+
+
+@media (max-width: 768px) {
+    .fullscreen-nav ul li a {
+        font-size: 2rem;
+    }
+}

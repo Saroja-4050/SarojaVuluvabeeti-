@@ -1,23 +1,28 @@
-import logo from './logo.svg';
+// src/App.js
+import React, { useState } from 'react'; // Import useState
+// import Navbar from './components/Navbar'; // DELETE THIS LINE
+import NavigationTrigger from './components/NavigationTrigger'; // IMPORT NEW
+import FullScreenNav from './components/FullScreenNav';     // IMPORT NEW
+import Hero from './components/Hero';
+import Footer from './components/Footer';
 import './App.css';
 
 function App() {
+  const [isNavOpen, setIsNavOpen] = useState(false);
+
+  const toggleNav = () => {
+    setIsNavOpen(!isNavOpen);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <NavigationTrigger onClick={toggleNav} isOpen={isNavOpen} />
+      <FullScreenNav isOpen={isNavOpen} onClose={toggleNav} />
+      <main className={`main-content ${isNavOpen ? 'blurred' : ''}`}> {/* Optional: class to blur content */}
+        <Hero />
+        {/* Other page sections will go here later */}
+      </main>
+      <Footer />
     </div>
   );
 }

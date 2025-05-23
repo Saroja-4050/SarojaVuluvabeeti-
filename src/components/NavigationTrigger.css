@@ -1,0 +1,48 @@
+/* src/components/NavigationTrigger.css */
+.navigation-trigger {
+    position: fixed;
+    top: 30px; /* Slightly more offset from edge */
+    right: 30px; /* Slightly more offset from edge */
+    z-index: 1010; /* Increased z-index to be very high */
+    background-color: rgba(50, 50, 50, 0.3); /* TEMPORARY semi-transparent background for visibility */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* TEMPORARY border */
+    border-radius: 50%; /* Make the button area circular */
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center; /* Center dots within the circular button */
+    width: 40px;  /* Explicit width for the button */
+    height: 40px; /* Explicit height for the button */
+    outline: none;
+    transition: background-color 0.3s ease;
+}
+
+.navigation-trigger:hover {
+    background-color: rgba(70, 70, 70, 0.5); /* Darker on hover */
+}
+
+.navigation-trigger .dot {
+    width: 5px;
+    height: 5px;
+    background-color: #f5f5f5; /* White dots */
+    border-radius: 50%;
+    transition: transform 0.3s ease, background-color 0.3s ease, opacity 0.3s ease;
+    display: block;
+    margin: 2px 0; /* Vertical spacing for dots */
+}
+
+/* Animate dots into an 'X' like shape when open */
+.navigation-trigger.open .dot:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.navigation-trigger.open .dot:nth-child(2) {
+    opacity: 0;
+    transform: scale(0);
+}
+
+.navigation-trigger.open .dot:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}

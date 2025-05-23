@@ -1,0 +1,101 @@
+/* src/components/Footer.css */
+
+/* Keyframes for footer entrance animation (if you're keeping it) */
+@keyframes slideInUpFooter {
+    from {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  .app-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #1a1a1a; /* CHANGED to match hero background */
+    border: none;
+    box-shadow: none;
+    padding: 10px 0; /* My suggestion for a bit more presence, adjust if you prefer your 4px */
+    z-index: 1000;
+    border-radius: 0;
+    /* Animation for seamless integration - from previous suggestion */
+    animation: slideInUpFooter 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s forwards;
+    opacity: 0; /* Start transparent for animation */
+  }
+  
+  /* ... rest of your Footer.css (.footer-content, .footer-signature, etc.) ... */
+  
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .footer-signature img {
+    width: 250px; /* Your current width */
+    height: auto;
+    margin-right: 15px;
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out; /* ADDED transition for hover */
+  }
+  
+  .footer-signature img:hover {
+    transform: scale(1.05); /* Slight scale up on hover */
+    opacity: 0.85;           /* Slightly fade on hover for a gentle effect */
+  }
+  
+  .footer-social-links {
+    display: flex;
+    gap: 12px;
+  }
+  
+  .social-icon-link {
+    color: #f5f5f5;
+    font-size: 1.3rem;
+    padding: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+  }
+  
+  .social-icon-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-3px);
+  }
+  
+  @media (max-width: 768px) {
+    .app-footer {
+      padding: 8px 0; /* Adjusted padding for smaller screens */
+    }
+    .footer-signature img {
+      width: 200px;
+      margin-right: 12px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .footer-content {
+      flex-direction: column;
+      gap: 10px;
+      padding: 0 15px;
+    }
+    .footer-signature img {
+      width: 180px;
+      margin: 0 auto 5px auto; /* Center and add slight bottom margin when stacked */
+    }
+    .app-footer {
+       /* Ensure animation still applies, opacity 0 is important */
+      opacity: 0; /* Apply to ensure animation doesn't conflict with initial display */
+      animation: slideInUpFooter 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s forwards;
+    }
+  }

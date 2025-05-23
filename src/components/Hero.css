@@ -1,0 +1,102 @@
+/* src/components/Hero.css */
+.hero-container {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    text-align: center;
+}
+
+.particles-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    color: #f5f5f5;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* src/components/Hero.css */
+
+/* ... .hero-container, .particles-background, .hero-content ... */
+
+/* === OPTIONAL: Styles for profile picture if placed in Hero === */
+/*
+.hero-profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid rgba(255, 255, 255, 0.7);
+    margin-bottom: 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+*/
+
+/* REMOVE .hero-text-main and .hero-name-typewriter styles if they are still present */
+/* Example of what to remove:
+.hero-text-main { ... }
+.hero-name-typewriter .Typewriter__wrapper { ... }
+.hero-name-typewriter .Typewriter__cursor { ... }
+*/
+
+/* === NEW Styles for Static Name === */
+.hero-name-static {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: #f5f5f5;
+    margin-bottom: 0.75rem; /* Space to tagline */
+    line-height: 1.2;
+}
+
+.hero-tagline-container {
+    min-height: 60px; /* Reserve space for tagline */
+    /* margin-bottom: 2rem; /* This was for old social links, can be removed or adjusted */
+}
+
+.hero-tagline-typewriter .Typewriter__wrapper {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 400;
+    max-width: 600px;
+    line-height: 1.6;
+    color: #e0e0e0;
+    display: inline-block;
+}
+
+.hero-tagline-typewriter .Typewriter__cursor {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.25rem;
+    color: #61dafb;
+}
+
+@media (min-width: 768px) {
+    /* ... (Optional .hero-profile-pic media queries) ... */
+
+    .hero-name-static { /* Adjust static name for larger screens */
+        font-size: 4.5rem;
+    }
+
+    .hero-tagline-typewriter .Typewriter__wrapper {
+        font-size: 1.5rem;
+    }
+    .hero-tagline-typewriter .Typewriter__cursor {
+        font-size: 1.5rem;
+    }
+}
