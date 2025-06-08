@@ -1,70 +1,128 @@
-# Getting Started with Create React App
+# My Portfolio React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This repository contains the source code for my personal portfolio website, built with React and modern web technologies. It showcases my skills, projects, professional experience, education, and recommendations — all in a single-page, responsive layout over a particle animation background.
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+* [Demo](#demo)
+* [Features](#features)
+* [Tech Stack](#tech-stack)
+* [Project Structure](#project-structure)
+* [Getting Started](#getting-started)
 
-### `npm start`
+  * [Installation](#installation)
+  * [Development](#development)
+  * [Building](#building)
+* [Deployment](#deployment)
+* [Usage](#usage)
+* [Contributing](#contributing)
+* [License](#license)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Demo
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Live demo: [https://your-username.vercel.app](https://your-username.vercel.app)
 
-### `npm test`
+## Features
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* **Hero Section**: Full-screen intro with background particles.
+* **About Section**: Brief bio and contact links.
+* **Skills Section**: Responsive grid of technical skills.
+* **Projects Section**: Filterable showcase of featured projects.
+* **Experience Section**: Filterable cards for professional & volunteering roles.
+* **Education Section**: Academic background with key coursework.
+* **Recommendations Section**: Testimonials from colleagues and managers.
+* **Sticky Footer Navigation**: Highlights current section using Intersection Observer.
+* **Responsive Design**: Works on desktop, tablet, and mobile.
 
-### `npm run build`
+## Tech Stack
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* **React** (functional components, hooks)
+* **React Icons** for iconography
+* **CSS** (modern layout with CSS Grid, Flexbox)
+* **Intersection Observer API** for scroll-based nav highlighting
+* **create-react-app** build tooling
+* **Vercel** for CI/CD & hosting
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Project Structure
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+my-portfolio/
+├── public/
+│   ├── index.html
+│   └── ...
+├── src/
+│   ├── components/
+│   │   ├── About.js
+│   │   ├── Education.js
+│   │   ├── Experience.js
+│   │   ├── Footer.js
+│   │   ├── Hero.js
+│   │   ├── Projects.js
+│   │   ├── Recommendations.js
+│   │   ├── Skills.js
+│   │   └── ...
+│   ├── App.js
+│   ├── App.css
+│   └── index.js
+├── .gitignore
+├── package.json
+└── README.md
+```
 
-### `npm run eject`
+## Getting Started
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Installation
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Clone the repo:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+   ```bash
+   git clone https://github.com/your-username/my-portfolio.git
+   cd my-portfolio
+   ```
+2. Install dependencies:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+   ```bash
+   npm install
+   ```
 
-## Learn More
+### Development
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Run the development server:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+npm start
+```
 
-### Code Splitting
+Open [http://localhost:3000](http://localhost:3000) to view in the browser. The page reloads on save.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Building
 
-### Analyzing the Bundle Size
+Create a production build in the `build/` folder:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```bash
+npm run build
+```
 
-### Making a Progressive Web App
+## Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+This app is configured for zero-config deployment on **Vercel**.
 
-### Advanced Configuration
+1. Push to GitHub.
+2. Import the repo in your Vercel dashboard.
+3. Vercel auto-detects `create-react-app` and will build & deploy on every push to `main`.
+4. Configure a custom domain under project **Settings → Domains**.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Usage
 
-### Deployment
+Use the footer nav or scroll to navigate. Sections highlight automatically. On smaller screens, the filter components collapse gracefully.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Contributing
 
-### `npm run build` fails to minify
+Contributions are welcome! Feel free to:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+* Submit issues for bugs or feature requests.
+* Open pull requests with improvements or fixes.
+
+## License
+
+This project is open source under the [MIT License](LICENSE).
