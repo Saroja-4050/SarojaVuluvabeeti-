@@ -40,9 +40,11 @@ export default function Recommendations() {
 
   return (
     <section id="recommendations" className="recommendations-section">
-      <h2 className="recommendations-header">Recommendations</h2>
+      <h2 className="recommendations-header">Voices of Collaboration</h2>
       <p className="recommendations-subheader">
-        Here's what colleagues and managers have said about my work.
+        Throughout my journey, I've had the privilege of working with exceptional professionals 
+        who have shaped my growth. Their words reflect our shared commitment to excellence 
+        and innovation in technology.
       </p>
 
       <div className="recommendations-grid">

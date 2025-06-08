@@ -56,13 +56,18 @@ const educationData = [
 ];
 
 export default function Education() {
-	const [activeEdu, setActiveEdu] = useState(null);
+    const [activeEdu, setActiveEdu] = useState(null);
 
-	return (
-		<section id="education" className="education-section">
-			<h2 className="education-header">Education Journey</h2>
-			<div className="timeline-container">
-				{educationData.map(edu => (
+    return (
+        <section id="education" className="education-section">
+            <h2 className="education-header">Academic Milestones</h2>
+            <p className="education-subheader">
+                My educational journey reflects my dedication to mastering computer science, 
+                from foundational algorithms to cutting-edge AI technologies. Each course 
+                has shaped my expertise in building intelligent and scalable solutions.
+            </p>
+            <div className="timeline-container">
+                {educationData.map(edu => (
 					<div
 						key={edu.id}
 						className={`timeline-item ${activeEdu === edu.id ? 'active' : ''}`}
@@ -98,7 +103,7 @@ export default function Education() {
 						</div>
 					</div>
 				))}
-			</div>
-		</section>
-	);
+            </div>
+        </section>
+    );
 }

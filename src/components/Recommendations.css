@@ -1,5 +1,5 @@
 .recommendations-section {
-  padding: 120px 24px;
+  padding: clamp(60px, 8vw, 120px) clamp(16px, 4vw, 24px);
   color: #fff;
   max-width: 1400px;
   margin: 0 auto;
@@ -7,20 +7,29 @@
 
 .recommendations-header {
   font-family: 'Montserrat', sans-serif;
-  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-size: clamp(2rem, 4vw, 3.5rem);
   text-align: center;
-  margin-bottom: 16px;
+  margin-bottom: clamp(12px, 2vw, 16px);
   font-weight: 700;
+  line-height: 1.2;
+  word-wrap: break-word;
+  padding: 0 10px;
+  background: linear-gradient(to right, #c792ea, #7c3aed);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  letter-spacing: -0.02em;
 }
 
 .recommendations-subheader {
   font-family: 'Lato', sans-serif;
-  font-size: 1.1rem;
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
   text-align: center;
   color: rgba(255,255,255,0.8);
-  margin: 0 auto 48px;
-  max-width: 800px;
+  margin: 0 auto clamp(32px, 6vw, 48px);
+  max-width: min(800px, 90%);
   line-height: 1.6;
+  padding: 0 10px;
 }
 
 .recommendations-grid {
@@ -31,10 +40,37 @@
 
 @media (max-width: 768px) {
   .recommendations-section {
-    padding: 80px 20px;
+    padding: 60px 16px;
   }
-  .recommendations-grid {
-    gap: 24px;
+
+  .recommendations-header {
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+    margin-bottom: 12px;
+  }
+
+  .recommendations-subheader {
+    font-size: 0.95rem;
+    margin-bottom: 32px;
+  }
+
+  .rec-text {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+}
+
+@media (max-width: 480px) {
+  .recommendations-section {
+    padding: 40px 12px;
+  }
+
+  .recommendations-header {
+    font-size: clamp(1.5rem, 4vw, 1.8rem);
+  }
+
+  .recommendations-subheader {
+    font-size: 0.9rem;
+    margin-bottom: 24px;
   }
 }
 
@@ -52,8 +88,8 @@
 .recommendations-card:hover,
 .recommendations-card.active {
   transform: translateY(-5px);
-  border-color: var(--accent-color);
-  background: rgba(255,255,255,0.02);
+  border-color: #c792ea;
+  background: rgba(124, 58, 237, 0.05);
 }
 
 .recommendations-card-header {
@@ -75,7 +111,7 @@
   height: 64px;
   border-radius: 50%;
   overflow: hidden;
-  border: 2px solid var(--accent-color);
+  border: 2px solid #c792ea;
 }
 
 .profile-image img {
@@ -96,7 +132,7 @@
 }
 
 .rec-title {
-  color: var(--accent-color);
+  color: #c792ea;
   font-weight: 500;
 }
 

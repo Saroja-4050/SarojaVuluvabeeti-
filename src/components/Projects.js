@@ -97,9 +97,11 @@ export default function Projects() {
 
   return (
     <section id="projects" className="projects-section">
-      <h2 className="projects-header">Featured Projects</h2>
+      <h2 className="projects-header">Innovation Portfolio</h2>
       <p className="projects-subheader">
-        A curated showcase of my real-world solutions in full-stack development, data analytics, AI/ML innovation, and deep learning excellence.
+        Exploring the intersection of AI, machine learning, and full-stack development 
+        through innovative solutions that push technological boundaries and create 
+        meaningful impact.
       </p>
 
       <div className="projects-filter">

@@ -57,10 +57,13 @@ const skillsData = [
 export default function Skills() {
   return (
     <section id="skills" className="skills-section">
-      <h2 className="skills-header">My Technical Expertise</h2>
+      <h2 className="skills-header">Technical Arsenal</h2>
       <p className="skills-subheader">
-        Leveraging full-stack engineering, data-driven analytics, and cutting-edge AI/ML to architect scalable, intelligent solutions that drive real-world results.
+        Mastering the full spectrum of modern software development - from robust
+        engineering practices to cutting-edge AI technologies - to craft innovative
+        solutions that push the boundaries of what's possible.
       </p>
+
       <div className="skills-grid">
         {skillsData.map((skill, idx) => (
           <div key={idx} className="skills-card">

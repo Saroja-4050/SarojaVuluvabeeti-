@@ -28,6 +28,31 @@
   }
 }
 
+/* -----------------------------------
+   “Up” arrow on edge of screen (always visible)
+   ----------------------------------- */
+.home-edge-arrow {
+  position: fixed;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  background: rgba(18,18,18,0.5);
+  color: #f5f5f5;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: background 0.3s, opacity 0.3s;
+  z-index: 9999;
+}
+.home-edge-arrow:hover {
+  background: rgba(18,18,18,0.8);
+}
+
 /* --------------------------
    Desktop footer navigation
    -------------------------- */
@@ -47,7 +72,7 @@
 
 .nav-group {
   display: flex;
-  gap: 24px;                    /* extra spacing between icons */
+  gap: 24px;
 }
 
 .nav-divider {
@@ -57,9 +82,6 @@
   margin: 0 12px;
 }
 
-/* -------------------------------------
-   Base icon style + tooltip container
-   ------------------------------------- */
 .nav-icon {
   position: relative;
   display: inline-flex;
@@ -67,18 +89,13 @@
   justify-content: center;
   width: 40px;
   height: 40px;
-  color: #f5f5f5;
-  font-size: 1.8rem;
-  transition: transform 0.2s,
-              color 0.2s,
-              background 0.2s,
-              outline 0.2s;
-  background: none;
-  border: none;
+  color: rgba(255, 255, 255, 0.6);
+  background: transparent;
+  border-radius: 50%;
+  transition: all 0.3s ease;
   cursor: pointer;
 }
 
-/* Base footer navigation */
 .footer-nav a {
   display: flex;
   align-items: center;
@@ -92,24 +109,18 @@
   text-decoration: none;
 }
 
-/* Hover effect & active-section highlight */
 .nav-icon:hover,
-.nav-icon.active {
-  transform: translateY(-2px) scale(1.1);
-  color: #c792ea;
-  background: rgba(199,146,234,0.2);
-  border-radius: 50%;
-  outline: 2px solid #c792ea;
-  outline-offset: 4px;
-}
+.nav-icon.active,
 .footer-nav a:hover,
 .footer-nav a.active {
-  background: rgba(255,255,255,0.1);
   color: #c792ea;
+  background: rgba(199, 146, 234, 0.1);
   transform: translateY(-2px);
+  outline: 2px solid #c792ea;
+  outline-offset: 2px;
 }
 
-/* Tooltip bubble (hover only) */
+/* Tooltip bubble */
 .nav-icon::after {
   content: attr(data-label);
   position: absolute;
@@ -130,7 +141,6 @@
   opacity: 1;
 }
 
-/* Spacer between nav and social links */
 .footer-spacer {
   width: 1px;
   height: 24px;
@@ -149,30 +159,30 @@
    Mobile hamburger button
    -------------------------- */
 .mobile-hamburger {
-  display: none;
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  width: 48px;
-  height: 48px;
-  border: 2px solid #f5f5f5;
-  border-radius: 50%;
-  background: transparent;
-  color: #f5f5f5;
-  font-size: 1.6rem;
-  cursor: pointer;
-  z-index: 1100;
-  transition: background 0.3s;
-  outline: none;
+  display: none; /* hide on desktop */
 }
-.mobile-hamburger:hover {
-  background: rgba(255,255,255,0.1);
-}
+
 @media (max-width: 768px) {
   .mobile-hamburger {
     display: flex;
+    position: fixed;
+    top: 32px;        /* moved to top */
+    right: 32px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(199, 146, 234, 0.1);
+    border: 2px solid #c792ea;
+    color: #c792ea;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 1060;
+  }
+  .mobile-hamburger:hover {
+    background: rgba(199, 146, 234, 0.2);
+    transform: scale(1.05);
   }
 }
 
@@ -182,19 +192,30 @@
 .side-panel {
   position: fixed;
   top: 0;
-  right: -320px;
+  right: 0;
   width: 300px;
+  max-width: 80%;
   height: 100vh;
   background: #121212;
   box-shadow: -4px 0 12px rgba(0,0,0,0.5);
-  display: flex;
-  flex-direction: column;
-  padding: 16px;
-  transition: right 0.3s ease;
+  padding: 20px;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
   z-index: 1050;
 }
 .side-panel.open {
-  right: 0;
+  transform: translateX(0);
+}
+
+/* full-width on small mobile */
+@media (max-width: 768px) {
+  .side-panel {
+    width: 100%;
+  }
+}
+
+body.menu-open {
+  overflow: hidden;
 }
 
 /* Panel header */
@@ -205,26 +226,30 @@
   margin-bottom: 24px;
   padding-top: 8px;
 }
+
 .profile-block {
   display: flex;
   align-items: center;
   gap: 12px;
 }
+
 .profile-icon {
   font-size: 1.6rem;
   color: #f5f5f5;
 }
+
 .profile-name {
   font-size: 1.2rem;
   font-weight: 600;
   color: #fff;
 }
+
 .profile-title {
   font-size: 0.875rem;
   color: #aaa;
 }
 
-/* Big circular close button */
+/* Close button */
 .close-btn {
   width: 48px;
   height: 48px;
@@ -247,6 +272,7 @@
   flex-direction: column;
   gap: 12px;
 }
+
 .nav-item {
   display: flex;
   align-items: center;
@@ -258,12 +284,14 @@
   border: 1px solid rgba(255,255,255,0.2);
   border-radius: 8px;
   text-decoration: none;
-  transition: background 0.2s,
-              border-color 0.2s;
+  transition: background 0.2s, border-color 0.2s;
 }
-.nav-item:hover {
-  background: rgba(255,255,255,0.05);
-  border-color: #f5f5f5;
+
+.nav-item:hover,
+.nav-item.active {
+  background: rgba(199, 146, 234, 0.1);
+  border-color: #c792ea;
+  color: #c792ea;
 }
 
 /* Divider in panel */
@@ -277,15 +305,18 @@
 .panel-connect {
   margin-bottom: 24px;
 }
+
 .connect-label {
   font-size: 0.875rem;
   color: #aaa;
   margin-bottom: 12px;
 }
+
 .connect-icons {
   display: flex;
   gap: 12px;
 }
+
 .social-icon {
   display: flex;
   align-items: center;
@@ -296,28 +327,10 @@
   border-radius: 50%;
   color: #f5f5f5;
   font-size: 1rem;
-  transition: background 0.2s,
-              border-color 0.2s;
+  transition: background 0.2s, border-color 0.2s;
 }
+
 .social-icon:hover {
   background: rgba(255,255,255,0.05);
   border-color: #f5f5f5;
-}
-
-/* Mobile responsiveness */
-@media (max-width: 768px) {
-  .footer-nav {
-    padding: 8px;
-    gap: 8px;
-  }
-  
-  .footer-nav a {
-    width: 40px;
-    height: 40px;
-    font-size: 1.2rem;
-  }
-  
-  .footer-spacer {
-    margin: 0 4px;
-  }
 }

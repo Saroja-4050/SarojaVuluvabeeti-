@@ -33,25 +33,37 @@ html, body {
   max-width: 1200px;
   padding: 0 20px;
   color: #f5f5f5;
+  width: 90%; /* Add width constraint */
 }
 
 .hero-name {
   font-family: 'Montserrat', sans-serif;
-  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
   font-weight: 700;
-  line-height: 1.1;
-  margin: 0 0 0.5rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  word-wrap: break-word;
+  background: linear-gradient(to right, #c792ea, #7c3aed);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  letter-spacing: -0.02em;
 }
 
 .hero-tagline {
   font-family: 'Lato', sans-serif;
-  font-size: clamp(1rem, 2.5vw, 1.4rem);
-  color: #e0e0e0;
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
   line-height: 1.6;
-  margin: 0;
+  margin: 0 auto 2rem;
+  max-width: 800px;
+  color: rgba(255, 255, 255, 0.9);
+  padding: 0 10px;
 }
 
-/* ─── MARQUEE ─────────────────────────────────────────────────────────── */
+.hero-marquee.inline {
+  margin: 2.5rem 0;
+}
+
 /* Inline marquee within the hero-content */
 .hero-marquee.inline {
   position: relative;
@@ -65,10 +77,10 @@ html, body {
   display: inline-block;
   white-space: nowrap;
   font-family: 'Montserrat', sans-serif;
-  font-size: clamp(1.4rem, 3vw, 2rem);
-  color: #888;
+  font-size: clamp(0.8rem, 1.5vw, 1rem);
+  color: rgba(255, 255, 255, 0.6);
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
 }
 
 .row1 { animation: scroll-left 200s linear infinite; }
@@ -87,18 +99,77 @@ html, body {
   margin-top: 1.5rem;
 }
 .hero-social a {
-  color: #f5f5f5 !important;
+  color: rgba(255, 255, 255, 0.8) !important;
   font-size: 1.8rem;
-  transition: transform 0.3s, color 0.3s;
+  transition: all 0.3s ease;
 }
 .hero-social a:hover {
   color: #c792ea !important;
-  transform: scale(1.2);
+  transform: translateY(-3px);
 }
 
 /* ─── RESPONSIVE ───────────────────────────────────────────────────────── */
-@media (max-width: 480px) {
-  .hero-name    { font-size: 2.5rem; }
-  .hero-tagline { font-size: 1rem; }
-  .marquee      { font-size: clamp(1.2rem, 5vw, 1.6rem); }
+@media screen and (max-width: 768px) {
+  .hero-content {
+    padding: 0 15px;
+    width: 95%;
+  }
+
+  .hero-name {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    margin-bottom: 1rem;
+  }
+
+  .hero-tagline {
+    font-size: clamp(0.9rem, 1.2vw, 1.1rem);
+    padding: 0 15px;
+  }
+
+  .hero-marquee.inline {
+    margin: 2.5rem 0;
+  }
+
+  .hero-social {
+    margin-top: 2.5rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .hero-content {
+    padding: 0 15px;
+  }
+
+  .hero-name {
+    font-size: clamp(1.8rem, 3.5vw, 2rem);
+  }
+
+  .hero-tagline {
+    font-size: 0.9rem;
+    padding: 0 10px;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-social a {
+    font-size: 1.5rem;
+  }
+}
+
+/* Add landscape mode support */
+@media screen and (max-height: 500px) {
+  .hero-container {
+    padding: 2rem 0;
+  }
+
+  .hero-name {
+    font-size: clamp(1.2rem, 3vw, 1.6rem);
+  }
+
+  .hero-tagline {
+    font-size: 0.8rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .hero-marquee.inline {
+    margin: 1rem 0;
+  }
 }

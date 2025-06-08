@@ -1,7 +1,7 @@
-// src/components/Footer.js
 import React, { useState, useEffect } from 'react';
 import {
   FaHome,
+  FaArrowUp,
   FaUser,
   FaCode,
   FaFolderOpen,
@@ -37,12 +37,13 @@ export default function Footer() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
 
-  // Prevent body scroll when menu is open
+  // Lock body scroll when menu opens
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
   }, [menuOpen]);
 
-  // Observe all <section id="..."> and fire when they cross the viewport mid-point
+  // IntersectionObserver to track active section
   useEffect(() => {
     const sections = document.querySelectorAll('section[id]');
     const observer = new IntersectionObserver(
@@ -53,23 +54,31 @@ export default function Footer() {
           }
         });
       },
-      {
-        root: null,
-        rootMargin: '-50% 0px -50% 0px', // fire when section crosses middle
-        threshold: 0
-      }
+      { root: null, rootMargin: '-50% 0px -50% 0px', threshold: 0 }
     );
-
     sections.forEach(sec => observer.observe(sec));
     return () => sections.forEach(sec => observer.unobserve(sec));
   }, []);
 
+  // Toggle body.menu-open class
+  useEffect(() => {
+    document.body.classList.toggle('menu-open', menuOpen);
+    return () => { document.body.classList.remove('menu-open'); };
+  }, [menuOpen]);
+
   return (
     <>
+      {/* Up-arrow on edge */}
+      <a href="#hero" className="home-edge-arrow" aria-label="Back to top">
+        <FaArrowUp />
+      </a>
+
+      {/* Scroll-down arrow (mobile only) */}
       <a href="#about" className={`scroll-down${menuOpen ? ' hidden' : ''}`}>
         <FaChevronDown />
       </a>
 
+      {/* Desktop footer nav */}
       <nav className="footer-nav">
         <div className="nav-group">
           {siteNav.map(link => (
@@ -83,11 +92,9 @@ export default function Footer() {
             </a>
           ))}
         </div>
-
         <div className="nav-divider" />
-
         <div className="nav-group">
-          {socialNav.map((s,i) => (
+          {socialNav.map((s, i) => (
             <a
               key={i}
               href={s.href}
@@ -102,16 +109,18 @@ export default function Footer() {
         </div>
       </nav>
 
-      {/* Mobile hamburger toggle */}
-      <button
-        className="mobile-hamburger"
-        onClick={() => setMenuOpen(open => !open)}
-        aria-label={menuOpen ? 'Close menu' : 'Open menu'}
-      >
-        {menuOpen ? <FaTimes /> : <FaBars />}
-      </button>
+      {/* Mobile hamburger (only when menu is closed) */}
+      {!menuOpen && (
+        <button
+          className="mobile-hamburger"
+          onClick={() => setMenuOpen(true)}
+          aria-label="Open menu"
+        >
+          <FaBars />
+        </button>
+      )}
 
-      {/* Side-panel */}
+      {/* Slide-in side panel */}
       <aside className={`side-panel${menuOpen ? ' open' : ''}`}>
         <header className="panel-header">
           <div className="profile-block">
@@ -121,7 +130,7 @@ export default function Footer() {
               <div className="profile-title">Software Engineer</div>
             </div>
           </div>
-          <button className="close-btn" onClick={() => setMenuOpen(false)}>
+          <button className="close-btn" onClick={() => setMenuOpen(false)} aria-label="Close menu">
             <FaTimes />
           </button>
         </header>
@@ -145,7 +154,7 @@ export default function Footer() {
         <div className="panel-connect">
           <div className="connect-label">Connect</div>
           <div className="connect-icons">
-            {socialNav.map((s,i) => (
+            {socialNav.map((s, i) => (
               <a
                 key={i}
                 href={s.href}
