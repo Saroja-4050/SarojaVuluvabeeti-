@@ -1,9 +1,12 @@
+// src/App.js
 import React, { useState, useEffect } from 'react';
 import Hero from './components/Hero';
 import About from './components/About';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
-import Experience from './components/Experience';   // ← New
+import Experience from './components/Experience';
+import Education from './components/Education';           // ← new
+//import Recommendations from './components/Recommendations'; // ← new (create this)
 import Footer from './components/Footer';
 import './App.css';
 
@@ -32,7 +35,9 @@ export default function App() {
       <About />
       <Skills />
       <Projects />
-      <Experience />           {/* ← Renders on particles */}
+      <Experience />
+      <Education />          {/* ← rendered on particles */}
+       {/* ← render your LinkedIn recs here */}
       <Footer activeSection={activeSection} />
     </div>
   );
