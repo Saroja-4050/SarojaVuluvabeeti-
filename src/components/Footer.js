@@ -1,49 +1,94 @@
-// src/components/Footer.js
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import {
+  FaHome, FaUser, FaCode, FaFolderOpen, FaBriefcase, FaEnvelope,
+  FaGithub, FaLinkedinIn, FaMedium, FaBars, FaTimes, FaChevronDown
+} from 'react-icons/fa';
 import './Footer.css';
-import { FaLinkedinIn, FaGithub, FaMediumM, FaEnvelope } from 'react-icons/fa';
 
-const Footer = () => {
-  const signatureImageUrl = process.env.PUBLIC_URL + '/images/logo.png';
+const siteNav = [
+  { icon: <FaHome />,      label: 'Home',       to: '#hero' },
+  { icon: <FaUser />,      label: 'About',      to: '#about' },
+  { icon: <FaCode />,      label: 'Skills',     to: '#skills' },
+  { icon: <FaFolderOpen />,label: 'Projects',   to: '#projects' },
+  { icon: <FaBriefcase />, label: 'Experience', to: '#experience' },
+  { icon: <FaEnvelope />,  label: 'Contact',    to: '#contact' }
+];
+
+const socialNav = [
+  { icon: <FaLinkedinIn />, to: 'https://www.linkedin.com/in/saroja-vuluvabeeti-b736a9203/' },
+  { icon: <FaGithub />,     to: 'https://github.com/Saroja-4050' },
+  { icon: <FaMedium />,     to: 'https://medium.com/@sarojavuluvabeeti' },
+  { icon: <FaEnvelope />,   to: 'mailto:sarojavuluvabeeti@gmail.com' }
+];
+
+export default function Footer() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? 'hidden' : '';
+  }, [menuOpen]);
 
   return (
-    <footer className="app-footer">
-      <div className="footer-content">
-        <div className="footer-signature">
-          <img src={signatureImageUrl} alt="Saroja Vuluvabeeti Signature" />
-        </div>
-        <div className="footer-social-links">
-          <a
-            href="https://www.linkedin.com/in/saroja-vuluvabeeti-b736a9203/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="social-icon-link"
-          >
-            <FaLinkedinIn />
-          </a>
-          <a
-            href="https://github.com/Saroja-4050"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="social-icon-link"
-          >
-            <FaGithub />
-          </a>
-          <a
-            href="https://medium.com/@sarojavuluvabeeti"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="social-icon-link"
-          >
-            <FaMediumM />
-          </a>
-          <a href="mailto:sarojavuluvabeeti@gmail.com" className="social-icon-link">
-            <FaEnvelope />
-          </a>
-        </div>
-      </div>
-    </footer>
-  );
-};
+    <>
+      <a href="#about" className={`scroll-down${menuOpen ? ' hidden' : ''}`}>
+        <FaChevronDown />
+      </a>
 
-export default Footer;
+      <nav className="footer-nav">
+        <div className="nav-group">
+          {siteNav.map((l,i)=>
+            <a key={i} href={l.to} className="nav-icon">{l.icon}</a>
+          )}
+        </div>
+        <div className="nav-divider"/>
+        <div className="nav-group">
+          {socialNav.map((l,i)=>
+            <a key={i} href={l.to} target="_blank" rel="noopener noreferrer" className="nav-icon">
+              {l.icon}
+            </a>
+          )}
+        </div>
+      </nav>
+
+      <button
+        className="mobile-hamburger"
+        onClick={()=>setMenuOpen(o=>!o)}
+        aria-label={menuOpen?'Close menu':'Open menu'}
+      >
+        {menuOpen?<FaTimes/>:<FaBars/>}
+      </button>
+
+      <aside className={`side-panel${menuOpen?' open':''}`}>
+        <header className="panel-header">
+          <div className="profile-block">
+            <FaUser className="profile-icon"/>
+            <div>
+              <div className="profile-name">Saroja Vuluvabeeti</div>
+              <div className="profile-title">Software Engineer</div>
+            </div>
+          </div>
+          <button className="close-btn" onClick={()=>setMenuOpen(false)}>
+            <FaTimes/>
+          </button>
+        </header>
+        <nav className="panel-nav">
+          {siteNav.map((item,i)=>
+            <a key={i} href={item.to} className="nav-item" onClick={()=>setMenuOpen(false)}>
+              {item.icon}<span>{item.label}</span>
+            </a>
+          )}
+        </nav>
+        <div className="panel-divider"/>
+        <div className="panel-connect">
+          <div className="connect-label">Connect</div>
+          <div className="connect-icons">
+            {socialNav.map((s,i)=>
+              <a key={i} href={s.to} target="_blank" rel="noopener noreferrer" className="social-icon">
+                {s.icon}
+              </a>
+            )}
+          </div>
+        </div>
+      </aside>
+    </>
+  );
+}
