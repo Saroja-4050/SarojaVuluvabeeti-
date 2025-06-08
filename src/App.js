@@ -1,9 +1,9 @@
-// src/App.js
 import React, { useState, useEffect } from 'react';
 import Hero from './components/Hero';
 import About from './components/About';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
+import Experience from './components/Experience';   // ← New
 import Footer from './components/Footer';
 import './App.css';
 
@@ -12,20 +12,16 @@ export default function App() {
 
   useEffect(() => {
     const sections = document.querySelectorAll('section[id]');
-    const observerOptions = {
-      root: null,
-      rootMargin: '0px',                // full viewport
-      threshold: 0.1                    // fire when 10% of section is visible
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          setActiveSection(entry.target.id);
-        }
-      });
-    }, observerOptions);
-
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { root: null, rootMargin: '0px', threshold: 0.1 }
+    );
     sections.forEach(sec => observer.observe(sec));
     return () => sections.forEach(sec => observer.unobserve(sec));
   }, []);
@@ -36,6 +32,7 @@ export default function App() {
       <About />
       <Skills />
       <Projects />
+      <Experience />           {/* ← Renders on particles */}
       <Footer activeSection={activeSection} />
     </div>
   );

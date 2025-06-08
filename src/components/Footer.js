@@ -1,91 +1,68 @@
 // src/components/Footer.js
 import React, { useState, useEffect } from 'react';
 import {
-  FaHome, FaUser, FaCode, FaFolderOpen, FaBriefcase, FaEnvelope,
-  FaGithub, FaLinkedinIn, FaMedium, FaBars, FaTimes, FaChevronDown
+  FaHome,
+  FaUser,
+  FaCode,
+  FaFolderOpen,
+  FaBriefcase,
+  FaGraduationCap,
+  FaQuoteRight,
+  FaLinkedinIn,
+  FaGithub,
+  FaMedium,
+  FaBars,
+  FaTimes,
+  FaChevronDown
 } from 'react-icons/fa';
 import './Footer.css';
-import { AiOutlineHome, AiOutlineUser, AiFillFolder, AiOutlineMail, AiOutlineLinkedin } from 'react-icons/ai';
-import { BsCode } from 'react-icons/bs';
-import { MdOutlineArticle } from 'react-icons/md';
 
 const siteNav = [
-  { icon: <FaHome />,       label: 'Home',       to: '#hero'       },
-  { icon: <FaUser />,       label: 'About',      to: '#about'      },
-  { icon: <FaCode />,       label: 'Skills',     to: '#skills'     },
-  { icon: <FaFolderOpen />, label: 'Projects',   to: '#projects'   },
-  { icon: <FaBriefcase />,  label: 'Experience', to: '#experience' },
-  { icon: <FaEnvelope />,   label: 'Contact',    to: '#contact'    }
+  { id: 'hero',           icon: <FaHome />,           label: 'Home',            to: '#hero'           },
+  { id: 'about',          icon: <FaUser />,           label: 'About',           to: '#about'          },
+  { id: 'skills',         icon: <FaCode />,           label: 'Skills',          to: '#skills'         },
+  { id: 'projects',       icon: <FaFolderOpen />,     label: 'Projects',        to: '#projects'       },
+  { id: 'experience',     icon: <FaBriefcase />,      label: 'Experience',      to: '#experience'     },
+  { id: 'education',      icon: <FaGraduationCap />,  label: 'Education',       to: '#education'      },
+  { id: 'recommendations',icon: <FaQuoteRight />,     label: 'Recommendations', to: '#recommendations'}
 ];
 
 const socialNav = [
-  { icon: <FaLinkedinIn />, to: 'https://www.linkedin.com/in/saroja-vuluvabeeti-b736a9203/' },
-  { icon: <FaGithub />,     to: 'https://github.com/Saroja-4050' },
-  { icon: <FaMedium />,     to: 'https://medium.com/@sarojavuluvabeeti' },
-  { icon: <FaEnvelope />,   to: 'mailto:sarojavuluvabeeti@gmail.com' }
+  { href: 'https://www.linkedin.com/in/saroja-vuluvabeeti-b736a9203/', icon: <FaLinkedinIn />, label: 'LinkedIn' },
+  { href: 'https://github.com/Saroja-4050',                            icon: <FaGithub />,     label: 'GitHub'   },
+  { href: 'https://medium.com/@sarojavuluvabeeti',                     icon: <FaMedium />,     label: 'Blog'     },
 ];
 
 export default function Footer() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('');
+  const [activeSection, setActiveSection] = useState('hero');
 
-  // prevent body scroll when menu open
+  // Prevent body scroll when menu is open
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : '';
   }, [menuOpen]);
 
-  // observe which section is in view
+  // Observe all <section id="..."> and fire when they cross the viewport mid-point
   useEffect(() => {
-    const sections = siteNav
-      .map(nav => document.querySelector(nav.to))
-      .filter(Boolean);
-
-    const obs = new IntersectionObserver(
+    const sections = document.querySelectorAll('section[id]');
+    const observer = new IntersectionObserver(
       entries => {
-        entries.forEach(e => {
-          if (e.isIntersecting) {
-            setActiveSection(`#${e.target.id}`);
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
           }
         });
       },
-      { threshold: 0.6 }
+      {
+        root: null,
+        rootMargin: '-50% 0px -50% 0px', // fire when section crosses middle
+        threshold: 0
+      }
     );
 
-    sections.forEach(s => obs.observe(s));
-    return () => sections.forEach(s => obs.unobserve(s));
+    sections.forEach(sec => observer.observe(sec));
+    return () => sections.forEach(sec => observer.unobserve(sec));
   }, []);
-
-  // Navigation links for single-page sections
-  const navLinks = [
-    { id: 'hero',     icon: <AiOutlineHome />,  href: '#hero',     label: 'Home'     },
-    { id: 'about',    icon: <AiOutlineUser />,  href: '#about',    label: 'About'    },
-    { id: 'skills',   icon: <BsCode />,         href: '#skills',   label: 'Skills'   },
-    { id: 'projects', icon: <AiFillFolder />,   href: '#projects', label: 'Projects' },
-  ];
-
-  // External social links
-  const socialLinks = [
-    { 
-      href: 'https://medium.com/@sarojavuluvabeeti', 
-      icon: <MdOutlineArticle />, 
-      label: 'Blog' 
-    },
-    { 
-      href: 'mailto:sarojavuluvabeeti@gmail.com', 
-      icon: <AiOutlineMail />, 
-      label: 'Contact' 
-    },
-    { 
-      href: 'https://www.linkedin.com/in/saroja-vuluvabeeti-b736a9203/', 
-      icon: <AiOutlineLinkedin />, 
-      label: 'LinkedIn' 
-    },
-    { 
-      href: 'https://github.com/Saroja-4050', 
-      icon: <FaGithub />, 
-      label: 'GitHub' 
-    },
-  ];
 
   return (
     <>
@@ -95,84 +72,91 @@ export default function Footer() {
 
       <nav className="footer-nav">
         <div className="nav-group">
-          {siteNav.map((l, i) => {
-            const isActive = activeSection === l.to;
-            return (
-              <a
-                key={i}
-                href={l.to}
-                className={`nav-icon${isActive ? ' active' : ''}`}
-                data-label={l.label}
-              >
-                {l.icon}
-              </a>
-            );
-          })}
+          {siteNav.map(link => (
+            <a
+              key={link.id}
+              href={link.to}
+              className={`nav-icon${activeSection === link.id ? ' active' : ''}`}
+              data-label={link.label}
+            >
+              {link.icon}
+            </a>
+          ))}
         </div>
+
         <div className="nav-divider" />
+
         <div className="nav-group">
-          {socialNav.map((l, i) =>
+          {socialNav.map((s,i) => (
             <a
               key={i}
-              href={l.to}
+              href={s.href}
               target="_blank"
               rel="noopener noreferrer"
               className="nav-icon"
+              data-label={s.label}
             >
-              {l.icon}
+              {s.icon}
             </a>
-          )}
+          ))}
         </div>
       </nav>
 
+      {/* Mobile hamburger toggle */}
       <button
         className="mobile-hamburger"
-        onClick={() => setMenuOpen(o => !o)}
+        onClick={() => setMenuOpen(open => !open)}
         aria-label={menuOpen ? 'Close menu' : 'Open menu'}
       >
         {menuOpen ? <FaTimes /> : <FaBars />}
       </button>
 
+      {/* Side-panel */}
       <aside className={`side-panel${menuOpen ? ' open' : ''}`}>
         <header className="panel-header">
           <div className="profile-block">
-            <FaUser className="profile-icon"/>
+            <FaUser className="profile-icon" />
             <div>
               <div className="profile-name">Saroja Vuluvabeeti</div>
               <div className="profile-title">Software Engineer</div>
             </div>
           </div>
           <button className="close-btn" onClick={() => setMenuOpen(false)}>
-            <FaTimes/>
+            <FaTimes />
           </button>
         </header>
+
         <nav className="panel-nav">
-          {siteNav.map((item, i) =>
+          {siteNav.map(item => (
             <a
-              key={i}
+              key={item.id}
               href={item.to}
               className="nav-item"
               onClick={() => setMenuOpen(false)}
             >
-              {item.icon}<span>{item.label}</span>
+              {item.icon}
+              <span>{item.label}</span>
             </a>
-          )}
+          ))}
         </nav>
+
         <div className="panel-divider" />
+
         <div className="panel-connect">
           <div className="connect-label">Connect</div>
           <div className="connect-icons">
-            {socialNav.map((s, i) =>
+            {socialNav.map((s,i) => (
               <a
                 key={i}
-                href={s.to}
+                href={s.href}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="social-icon"
+                data-label={s.label}
               >
                 {s.icon}
               </a>
-            )}
+            ))}
           </div>
         </div>
       </aside>

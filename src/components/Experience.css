@@ -1,0 +1,175 @@
+.experience-section {
+  padding: 120px 24px;
+  color: #fff;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.experience-header {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  text-align: center;
+  margin-bottom: 24px;
+  font-weight: 700;
+}
+
+.experience-subheader {
+  font-family: 'Lato', sans-serif;
+  font-size: 1.2rem;
+  text-align: center;
+  color: rgba(255,255,255,0.8);
+  margin: 0 auto 80px;
+  max-width: 800px;
+  line-height: 1.6;
+}
+
+/* New subsection headers */
+.experience-subsection-header {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  color: #fff;
+  margin: 40px 0 24px;
+  text-align: left;
+}
+
+/* Grid */
+.experience-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(300px, 1fr));
+  gap: 48px;
+  margin: 0 auto;
+}
+
+@media (max-width: 1024px) {
+  .experience-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .experience-section {
+    padding: 80px 20px;
+  }
+}
+
+/* Card (same as before) */
+.experience-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 16px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+}
+.experience-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Header row */
+.experience-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+.experience-position {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+}
+.experience-dates {
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+  color: rgba(255,255,255,0.8);
+}
+
+/* Company/Club link */
+.experience-company {
+  margin-bottom: 8px;
+}
+.experience-company a {
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+  color: #c792ea;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.experience-company a:hover {
+  color: #fff;
+}
+
+/* Institution (GPREC College) */
+.experience-institution {
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 16px;
+}
+
+/* Roles bullets */
+.experience-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.experience-list li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 8px;
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: rgba(255,255,255,0.8);
+}
+.experience-list li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: #c792ea;
+}
+
+/* -----------------------------------------------------------------
+   Filter buttons (Professional / Volunteering)
+   ----------------------------------------------------------------- */
+.experience-filter {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 48px;
+}
+
+.experience-filter .filter-button {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.4);
+  border-radius: 24px;
+  padding: 8px 20px;
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+  color: rgba(255,255,255,0.8);
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.experience-filter .filter-button.active {
+  background: rgba(255,255,255,0.1);
+  border-color: #fff;
+  color: #fff;
+}
+
+/* Add hover state for better interactivity */
+.experience-filter .filter-button:hover:not(.active) {
+  background: rgba(255,255,255,0.05);
+  border-color: rgba(255,255,255,0.6);
+}
+
+/* Add responsive styling for mobile */
+@media (max-width: 768px) {
+  .experience-filter {
+    gap: 12px;
+  }
+  
+  .experience-filter .filter-button {
+    padding: 6px 16px;
+    font-size: 0.9rem;
+  }
+}
