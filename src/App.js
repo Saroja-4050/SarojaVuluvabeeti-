@@ -6,7 +6,7 @@ import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Experience from './components/Experience';
 import Education from './components/Education';           // ← new
-//import Recommendations from './components/Recommendations'; // ← new (create this)
+import Recommendations from './components/Recommendations'; // ← new (create this)
 import Footer from './components/Footer';
 import './App.css';
 
@@ -37,7 +37,7 @@ export default function App() {
       <Projects />
       <Experience />
       <Education />          {/* ← rendered on particles */}
-       {/* ← render your LinkedIn recs here */}
+      <Recommendations />                       {/* ← render your LinkedIn recs here */}
       <Footer activeSection={activeSection} />
     </div>
   );

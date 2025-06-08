@@ -68,31 +68,33 @@ export default function Education() {
 						className={`timeline-item ${activeEdu === edu.id ? 'active' : ''}`}
 						onClick={() => setActiveEdu(edu.id === activeEdu ? null : edu.id)}
 					>
-						<div className="timeline-marker">
-							<FaGraduationCap />
+						<div className="education-header-group">
+							<div className="timeline-marker">
+								<FaGraduationCap />
+							</div>
+							<h3 className="education-degree">{edu.degree}</h3>
 						</div>
 
-						<div className="timeline-content">
-							<div className="education-period">{edu.period}</div>
-							<h3 className="education-degree">{edu.degree}</h3>
-							<a href={edu.link} className="education-university" target="_blank" rel="noopener noreferrer">
-								{edu.university}
-							</a>
-							<div className="education-major">{edu.major}</div>
-
-							<div className="courses-grid">
-								{edu.courses.map((course) => (
-									<div className="course-item" key={course.code}>
-										<span className="course-icon">
-											{getIconForCourse(course.name)}
-										</span>
-										<div>
-											<span className="course-name">{course.name}</span>
-											<div className="course-code">{course.code}</div>
-										</div>
-									</div>
-								))}
+						<div className="education-info-group">
+							<div className="university-line">
+								<span className="education-university">{edu.university}</span>
+								<span className="education-period">{edu.period}</span>
 							</div>
+							<div className="education-major">{edu.major}</div>
+						</div>
+
+						<div className="courses-grid">
+							{edu.courses.map((course) => (
+								<div className="course-item" key={course.code}>
+									<span className="course-icon">
+										{getIconForCourse(course.name)}
+									</span>
+									<div>
+										<span className="course-name">{course.name}</span>
+										<div className="course-code">{course.code}</div>
+									</div>
+								</div>
+							))}
 						</div>
 					</div>
 				))}

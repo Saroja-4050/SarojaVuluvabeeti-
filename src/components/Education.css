@@ -13,6 +13,13 @@
   letter-spacing: -0.02em;
 }
 
+.education-header-group {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
 /* Remove timeline styles and add grid container */
 .timeline-container {
   display: grid;
@@ -52,7 +59,7 @@
   border-radius: 50%;
   background: var(--accent-color);
   color: white;
-  margin-bottom: 16px;
+  margin-bottom: 0; /* Remove existing margin */
 }
 
 .education-period {
@@ -66,7 +73,7 @@
   font-family: var(--font-heading);
   font-size: 2rem;
   font-weight: 700;
-  margin: 0 0 12px 0;
+  margin: 0; /* Remove existing margins */
   color: #fff;
 }
 
@@ -76,13 +83,24 @@
   font-size: 1.2rem;
   font-weight: 500;
   display: block;
-  margin-bottom: 8px;
+  margin-bottom: 0; /* Remove existing margin */
 }
 
 .education-major {
   font-size: 1.1rem;
   color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 24px; /* Reduced margin */
+}
+
+.education-info-group {
   margin-bottom: 32px;
+}
+
+.university-line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
 }
 
 .courses-grid {
@@ -149,11 +167,21 @@
     padding: 80px 20px;
   }
   
+  .education-degree {
+    font-size: 1.5rem;
+  }
+  
   .courses-grid {
     grid-template-columns: 1fr;
   }
   
   .timeline-item {
     padding: 24px;
+  }
+  
+  .university-line {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
   }
 }
