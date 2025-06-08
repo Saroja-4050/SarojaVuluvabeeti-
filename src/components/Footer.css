@@ -33,17 +33,16 @@
    -------------------------- */
 .footer-nav {
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  gap: 16px;
   position: fixed;
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
-  background: transparent;      /* fully transparent */
-  backdrop-filter: none;        /* no blur */
   padding: 8px 16px;
   border-radius: 50px;
-  z-index: 9999;                /* float above particles and text */
+  z-index: 9999;
 }
 
 .nav-group {
@@ -79,6 +78,20 @@
   cursor: pointer;
 }
 
+/* Base footer navigation */
+.footer-nav a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  color: rgba(255,255,255,0.6);
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
 /* Hover effect & active-section highlight */
 .nav-icon:hover,
 .nav-icon.active {
@@ -88,6 +101,12 @@
   border-radius: 50%;
   outline: 2px solid #c792ea;
   outline-offset: 4px;
+}
+.footer-nav a:hover,
+.footer-nav a.active {
+  background: rgba(255,255,255,0.1);
+  color: #c792ea;
+  transform: translateY(-2px);
 }
 
 /* Tooltip bubble (hover only) */
@@ -109,6 +128,14 @@
 }
 .nav-icon:hover::after {
   opacity: 1;
+}
+
+/* Spacer between nav and social links */
+.footer-spacer {
+  width: 1px;
+  height: 24px;
+  background: rgba(255,255,255,0.2);
+  margin: 0 8px;
 }
 
 /* Hide the desktop nav on small screens */
@@ -275,4 +302,22 @@
 .social-icon:hover {
   background: rgba(255,255,255,0.05);
   border-color: #f5f5f5;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .footer-nav {
+    padding: 8px;
+    gap: 8px;
+  }
+  
+  .footer-nav a {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+  
+  .footer-spacer {
+    margin: 0 4px;
+  }
 }

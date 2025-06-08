@@ -1,0 +1,118 @@
+/* Section wrapper (transparent) */
+.projects-section {
+  padding: 120px 24px;
+  color: #fff;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Heading */
+.projects-header {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  text-align: center;
+  margin-bottom: 24px;
+  font-weight: 700;
+}
+
+/* Sub-heading */
+.projects-subheader {
+  font-family: 'Lato', sans-serif;
+  font-size: 1.2rem;
+  text-align: center;
+  color: rgba(255,255,255,0.8);
+  margin: 0 auto 80px;
+  max-width: 800px;
+  line-height: 1.6;
+}
+
+/* Filter pills */
+.projects-filter {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 48px;
+}
+
+.filter-button {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.4);
+  border-radius: 24px;
+  padding: 8px 20px;
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+  color: rgba(255,255,255,0.8);
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.filter-button.active {
+  background: rgba(255,255,255,0.1);
+  border-color: #fff;
+  color: #fff;
+}
+
+/* 2×2 grid, stack to one column on narrower screens */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(300px, 1fr));
+  gap: 48px;
+  margin: 0 auto;
+}
+
+@media (max-width: 1024px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .projects-section {
+    padding: 80px 20px;
+  }
+}
+
+/* Card styling (matches Skills) */
+.projects-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 16px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+}
+
+.projects-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Card title */
+.projects-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin: 0 0 16px;
+}
+
+/* Card description */
+.projects-description {
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+  color: rgba(255,255,255,0.9);
+  line-height: 1.5;
+  margin-bottom: auto;
+}
+
+/* “View Project” link */
+.projects-link {
+  margin-top: 24px;
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+  color: #c792ea;
+  text-decoration: none;
+  align-self: flex-start;
+  transition: color 0.3s;
+}
+
+.projects-link:hover {
+  color: #fff;
+}

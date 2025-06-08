@@ -5,6 +5,9 @@ import {
   FaGithub, FaLinkedinIn, FaMedium, FaBars, FaTimes, FaChevronDown
 } from 'react-icons/fa';
 import './Footer.css';
+import { AiOutlineHome, AiOutlineUser, AiFillFolder, AiOutlineMail, AiOutlineLinkedin } from 'react-icons/ai';
+import { BsCode } from 'react-icons/bs';
+import { MdOutlineArticle } from 'react-icons/md';
 
 const siteNav = [
   { icon: <FaHome />,       label: 'Home',       to: '#hero'       },
@@ -51,6 +54,38 @@ export default function Footer() {
     sections.forEach(s => obs.observe(s));
     return () => sections.forEach(s => obs.unobserve(s));
   }, []);
+
+  // Navigation links for single-page sections
+  const navLinks = [
+    { id: 'hero',     icon: <AiOutlineHome />,  href: '#hero',     label: 'Home'     },
+    { id: 'about',    icon: <AiOutlineUser />,  href: '#about',    label: 'About'    },
+    { id: 'skills',   icon: <BsCode />,         href: '#skills',   label: 'Skills'   },
+    { id: 'projects', icon: <AiFillFolder />,   href: '#projects', label: 'Projects' },
+  ];
+
+  // External social links
+  const socialLinks = [
+    { 
+      href: 'https://medium.com/@sarojavuluvabeeti', 
+      icon: <MdOutlineArticle />, 
+      label: 'Blog' 
+    },
+    { 
+      href: 'mailto:sarojavuluvabeeti@gmail.com', 
+      icon: <AiOutlineMail />, 
+      label: 'Contact' 
+    },
+    { 
+      href: 'https://www.linkedin.com/in/saroja-vuluvabeeti-b736a9203/', 
+      icon: <AiOutlineLinkedin />, 
+      label: 'LinkedIn' 
+    },
+    { 
+      href: 'https://github.com/Saroja-4050', 
+      icon: <FaGithub />, 
+      label: 'GitHub' 
+    },
+  ];
 
   return (
     <>
