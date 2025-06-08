@@ -1,19 +1,36 @@
-/* --- desktop scroll-down arrow --- */
-.scroll-down {
-  position: fixed;
-  bottom: 24px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 2rem;
-  color: #f5f5f5;
-  opacity: 0.7;
-  transition: opacity 0.3s;
-  z-index: 100;
-}
-.scroll-down:hover { opacity: 1; }
-.scroll-down.hidden { display: none; }
+/* src/components/Footer.css */
 
-/* --- desktop footer nav --- */
+/* --------------------------------------------------------------------------
+   Scroll-down arrow (hidden on desktop, only shows on mobile when menu closed)
+   -------------------------------------------------------------------------- */
+.scroll-down {
+  display: none; /* hide by default (desktop) */
+}
+
+@media (max-width: 768px) {
+  .scroll-down {
+    display: block;
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem;
+    color: #f5f5f5;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+    z-index: 9999;   /* above everything */
+  }
+  .scroll-down:hover {
+    opacity: 1;
+  }
+  .scroll-down.hidden {
+    display: none;
+  }
+}
+
+/* --------------------------
+   Desktop footer navigation
+   -------------------------- */
 .footer-nav {
   display: flex;
   align-items: center;
@@ -22,46 +39,95 @@
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(18,18,18,0.8);
-  backdrop-filter: blur(10px);
+  background: transparent;      /* fully transparent */
+  backdrop-filter: none;        /* no blur */
   padding: 8px 16px;
   border-radius: 50px;
-  z-index: 1000;
+  z-index: 9999;                /* float above particles and text */
 }
+
 .nav-group {
   display: flex;
-  gap: 16px;
+  gap: 24px;                    /* extra spacing between icons */
 }
-.nav-icon {
-  color: #f5f5f5;
-  font-size: 1.8rem;
-  transition: transform 0.2s, color 0.2s;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-.nav-icon:hover {
-  transform: translateY(-2px);
-  color: #c792ea;
-}
+
 .nav-divider {
   width: 1px;
   height: 24px;
   background: rgba(255,255,255,0.2);
   margin: 0 12px;
 }
-/* hide on mobile */
-@media (max-width: 768px) {
-  .footer-nav { display: none; }
+
+/* -------------------------------------
+   Base icon style + tooltip container
+   ------------------------------------- */
+.nav-icon {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  color: #f5f5f5;
+  font-size: 1.8rem;
+  transition: transform 0.2s,
+              color 0.2s,
+              background 0.2s,
+              outline 0.2s;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
-/* --- mobile hamburger on right --- */
+/* Hover effect & active-section highlight */
+.nav-icon:hover,
+.nav-icon.active {
+  transform: translateY(-2px) scale(1.1);
+  color: #c792ea;
+  background: rgba(199,146,234,0.2);
+  border-radius: 50%;
+  outline: 2px solid #c792ea;
+  outline-offset: 4px;
+}
+
+/* Tooltip bubble (hover only) */
+.nav-icon::after {
+  content: attr(data-label);
+  position: absolute;
+  bottom: 110%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(18,18,18,0.9);
+  color: #fff;
+  font-size: 0.75rem;
+  padding: 4px 8px;
+  border-radius: 4px;
+  opacity: 0;
+  pointer-events: none;
+  white-space: nowrap;
+  transition: opacity 0.2s;
+}
+.nav-icon:hover::after {
+  opacity: 1;
+}
+
+/* Hide the desktop nav on small screens */
+@media (max-width: 768px) {
+  .footer-nav {
+    display: none;
+  }
+}
+
+/* --------------------------
+   Mobile hamburger button
+   -------------------------- */
 .mobile-hamburger {
   display: none;
   position: fixed;
   top: 20px;
   right: 20px;
-  width: 48px; height: 48px;
+  width: 48px;
+  height: 48px;
   border: 2px solid #f5f5f5;
   border-radius: 50%;
   background: transparent;
@@ -72,7 +138,9 @@
   transition: background 0.3s;
   outline: none;
 }
-.mobile-hamburger:hover { background: rgba(255,255,255,0.1); }
+.mobile-hamburger:hover {
+  background: rgba(255,255,255,0.1);
+}
 @media (max-width: 768px) {
   .mobile-hamburger {
     display: flex;
@@ -81,11 +149,13 @@
   }
 }
 
-/* --- slide-in panel from right --- */
+/* --------------------------
+   Slide-in side panel
+   -------------------------- */
 .side-panel {
   position: fixed;
   top: 0;
-  right: -320px;    /* off-screen to right */
+  right: -320px;
   width: 300px;
   height: 100vh;
   background: #121212;
@@ -100,13 +170,13 @@
   right: 0;
 }
 
-/* header */
+/* Panel header */
 .panel-header {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;   /* align close icon to top */
+  align-items: flex-start;
   margin-bottom: 24px;
-  padding-top: 8px;           /* nudge down a bit */
+  padding-top: 8px;
 }
 .profile-block {
   display: flex;
@@ -127,7 +197,7 @@
   color: #aaa;
 }
 
-/* big circular close button */
+/* Big circular close button */
 .close-btn {
   width: 48px;
   height: 48px;
@@ -144,7 +214,7 @@
   margin: 0;
 }
 
-/* navigation items */
+/* Panel navigation items */
 .panel-nav {
   display: flex;
   flex-direction: column;
@@ -161,21 +231,22 @@
   border: 1px solid rgba(255,255,255,0.2);
   border-radius: 8px;
   text-decoration: none;
-  transition: background 0.2s, border-color 0.2s;
+  transition: background 0.2s,
+              border-color 0.2s;
 }
 .nav-item:hover {
   background: rgba(255,255,255,0.05);
   border-color: #f5f5f5;
 }
 
-/* divider */
+/* Divider in panel */
 .panel-divider {
   height: 1px;
   background: rgba(255,255,255,0.2);
   margin: 24px 0;
 }
 
-/* connect section */
+/* Connect section */
 .panel-connect {
   margin-bottom: 24px;
 }
@@ -192,12 +263,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 36px; height: 36px;
+  width: 36px;
+  height: 36px;
   border: 1px solid rgba(255,255,255,0.2);
   border-radius: 50%;
   color: #f5f5f5;
   font-size: 1rem;
-  transition: background 0.2s, border-color 0.2s;
+  transition: background 0.2s,
+              border-color 0.2s;
 }
 .social-icon:hover {
   background: rgba(255,255,255,0.05);

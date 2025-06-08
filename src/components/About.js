@@ -11,7 +11,7 @@ export default function About() {
       */}
 
       {/* big, centered section header */}
-      <h1 className="about-header">Architecting Intelligence, Engineering Reality.</h1>
+      <h1 className="about-header">Architecting Intelligence and Engineering Reality.</h1>
       <p className="about-subheader">
         I merge robust software architecture with advanced machine learning to build intelligent, scalable, and high-performance applications.
       </p>

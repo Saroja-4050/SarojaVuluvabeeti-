@@ -1,4 +1,3 @@
-// src/components/Hero.js
 import React, { useCallback } from 'react';
 import Particles from 'react-tsparticles';
 import { loadSlim } from 'tsparticles-slim';
@@ -17,16 +16,17 @@ const socialLinks = [
   { icon: <FaEnvelope />,    url: 'mailto:sarojavuluvabeeti@gmail.com' }
 ];
 
+// more profile-focused titles
 const movingWords = [
-  'Innovative coder',
-  'ML engineer',
-  'Social impact coder',
-  'Education advocate'
+  'Software Engineer',
+  'AI/ML Specialist',
+  'System Architect',
+  'Problem Solver'
 ];
 
-// Build a seamless double-length string
-const baseLine = movingWords.join(' • ') + ' • ';
-const marqueeText = baseLine + baseLine;
+// build one super-long line so it never “runs out”
+const line       = movingWords.join(' • ');
+const marqueeText = Array(20).fill(line).join(' • ');
 
 export default function Hero() {
   const particlesInit = useCallback(async engine => {
@@ -67,8 +67,15 @@ export default function Hero() {
           Hi, I’m Saroja Vuluvabeeti
         </h1>
         <p className="hero-tagline">
-        A dedicated software engineer with a deep specialization in building and deploying powerful AI and machine learning models into live systems.
+          A dedicated software engineer with a deep specialization in building and deploying powerful AI and machine learning models into live systems.
         </p>
+
+        {/* inline marquee right under the tagline */}
+        <div className="hero-marquee inline">
+          <div className="marquee row1">{marqueeText}</div>
+          <div className="marquee row2">{marqueeText}</div>
+        </div>
+
         <div className="hero-social">
           {socialLinks.map((l, i) => (
             <a key={i} href={l.url} target="_blank" rel="noopener noreferrer">
@@ -76,11 +83,6 @@ export default function Hero() {
             </a>
           ))}
         </div>
-      </div>
-
-      <div className="hero-marquee">
-        <div className="marquee row1">{marqueeText}</div>
-        <div className="marquee row2">{marqueeText}</div>
       </div>
     </div>
   );
