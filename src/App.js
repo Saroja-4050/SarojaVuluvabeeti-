@@ -8,6 +8,7 @@ import Experience from './components/Experience';
 import Education from './components/Education';           // ← new
 import Recommendations from './components/Recommendations'; // ← new (create this)
 import Footer from './components/Footer';
+import Contact from './components/Contact';
 import './App.css';
 
 export default function App() {
@@ -38,6 +39,7 @@ export default function App() {
       <Experience />
       <Education />          {/* ← rendered on particles */}
       <Recommendations />                       {/* ← render your LinkedIn recs here */}
+      <Contact />
       <Footer activeSection={activeSection} />
     </div>
   );

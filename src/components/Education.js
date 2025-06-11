@@ -26,7 +26,7 @@ const educationData = [
 	{
 		id: 2,
 		degree: "Master's Degree",
-		major: 'Computer Science & Engineering',
+		major: 'Computer Science & Engineering (Research)',
 		university: 'University at Buffalo',
 		period: 'Aug 2024 - Present',
 		courses: [
@@ -47,10 +47,17 @@ const educationData = [
 		university: 'G. Pulla Reddy Engineering College',
 		period: '2019 - 2023',
 		courses: [
-			{ code: 'CS301', name: 'DSA' },
-			{ code: 'CS302', name: 'Operating Systems' },
-			{ code: 'CS303', name: 'Database Management Systems' },
-			{ code: 'CS304', name: 'Machine Learning Fundamentals' }
+			{ name: 'Object Oriented Programming' },
+			{ name: 'Advanced Data Structures' },
+			{ name: 'Advanced Database Management Systems' },
+			{ name: 'Computer Networks' },
+			{ name: 'Compiler Design' },
+			{ name: 'Software Engineering' },
+			{ name: 'Web Technologies' },
+			{ name: 'Data Mining' },
+			{ name: 'Big Data Analytics' },
+			{ name: 'Cloud Computing' },
+			{ name: 'Software Quality and Testing' }
 		]
 	}
 ];
