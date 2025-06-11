@@ -4,12 +4,6 @@ import './About.css';
 export default function About() {
   return (
     <section id="about" className="about-section">
-      {/* The repeating text at the top (e.g., "SOFTWARE ENGINEER • AI/ML ENGINEER") 
-        would likely be in a parent component or its own component. 
-        Based on your image, here are the recommended new strings:
-        "SOFTWARE ENGINEER", "AI/ML ENGINEER", "SYSTEM ARCHITECT", "PROBLEM SOLVER"
-      */}
-
       {/* big, centered section header */}
       <h1 className="about-header">Architecting Intelligence and Engineering Reality.</h1>
       <p className="about-subheader">
@@ -18,19 +12,18 @@ export default function About() {
 
       <div className="about-inner">
         <div className="about-image">
-          {/* The image of you, who appears to be of South Asian descent, fits perfectly here. */}
-          <img src="/images/profile.jpg" alt="A smiling software and AI/ML engineer" />
+          <img src="/images/profile1.jpg" alt="A smiling software and AI/ML engineer" />
         </div>
         <div className="about-copy">
           <h2 className="section-title">My Approach</h2>
           <p className="section-content">
-            I believe great software is defined not just by elegant code, but by its ability to solve meaningful problems. My approach is rooted in a deep understanding of data, algorithms, and system architecture to create solutions that are both technically sound and strategically valuable.
+            I'm a coder who lives at the intersection of machine learning, deep learning, and full-stack engineering. Whether I'm turning a raw dataset into a clean training pipeline, pushing a transformer model into production, or spinning up a React front end that shows off the results in real time, I'm driven by the same goal: ship AI that feels fast, useful, and delightfully intuitive.
           </p>
           <p className="section-content">
-            With a focus on performance and scalability, I engineer systems for the entire machine learning lifecycle—from data processing and model training to robust deployment and monitoring. Every component is built for efficiency and reliability.
+            I write code with a product mindset—profiling bottlenecks, automating tests, and containerizing everything so it scales from my laptop to the cloud without drama. My favorite moment is that first "aha!" when someone interacts with a feature powered by the model I just fine-tuned.
           </p>
           <p className="section-quote">
-            “The goal is to turn data into information, and information into insight.” — Carly Fiorina
+            "The best way to predict the future is to invent it." — Alan Kay
           </p>
         </div>
       </div>

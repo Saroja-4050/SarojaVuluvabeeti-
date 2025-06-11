@@ -19,8 +19,10 @@ const socialLinks = [
 // more profile-focused titles
 const movingWords = [
   'Software Engineer',
-  'AI/ML Specialist',
-  'System Architect',
+  'AI Enigineer',
+  'Machine Learning engineer',
+  'Data Scientist',
+  'Data Engineer',
   'Problem Solver'
 ];
 
