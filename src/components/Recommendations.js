@@ -1,3 +1,4 @@
+// src/components/Recommendations.js
 import React, { useState } from 'react';
 import './Recommendations.css';
 
@@ -7,7 +8,7 @@ const recommendationsData = [
     name: 'Sumit Soni',
     title: 'Senior Product Manager',
     company: 'Real (NASDAQ: REAX)',
-    image: '/images/sumit.jpeg',
+    image: `${process.env.PUBLIC_URL}/assets/sumit.jpeg`,
     date: 'May 20, 2025',
     relation: 'Sumit managed Saroja directly',
     text: `I had the chance to work with Saroja during my time running Product Academy. Though our time together was brief, she left a strong impression. Saroja worked diligently and played a key role in building our supply analytics framework. She was quick to understand the problem space and brought clarity and structure to the data.`
@@ -17,7 +18,7 @@ const recommendationsData = [
     name: 'Saba Khanam',
     title: 'Software Engineer Specialist',
     company: 'ValueLabs',
-    image: '/images/saba.jpeg',
+    image: `${process.env.PUBLIC_URL}/assets/saba.jpeg`,
     date: 'May 15, 2025',
     relation: 'Saba worked with Saroja on the same team',
     text: `I had the pleasure of working with Saroja as a founding member of the Intel IoT Student Club at our college. From the start, she brought energy, clarity, and direction to every initiative. We also served together as student coordinators of the Training & Placement Cell, where her thoughtful planning and consistent dependability made a lasting impression. Above all, she's one of the most hardworking and dedicated people I've worked with — always giving her best without being asked.`
@@ -28,7 +29,7 @@ const recommendationsData = [
     title: 'Founder & CEO',
     company: 'appétit',
     subtitle: 'Championing local restaurants, bite by bite',
-    image: '/images/steve.jpeg',
+    image: `${process.env.PUBLIC_URL}/assets/steve.jpeg`,
     date: 'May 15, 2025',
     relation: 'Steve managed Saroja directly',
     text: `I had the pleasure of working with Saroja (Rose) and her team this semester as they developed a loyalty program for appétit. She was incredibly proactive and forward-thinking, consistently demonstrating top-tier communication and problem-solving skills. Rose's energy and passion were infectious, and her ability to execute on strategy while nailing the details made her a standout member of our team. Highly recommend!`

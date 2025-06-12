@@ -1,4 +1,3 @@
-// src/components/Hero.js
 import React, { useCallback } from 'react';
 import Particles from 'react-tsparticles';
 import { loadSlim } from 'tsparticles-slim';
@@ -9,9 +8,6 @@ import {
   FaEnvelope
 } from 'react-icons/fa';
 import './Hero.css';
-
-// ← import your image asset
-import profile1 from '../assets/profile1.jpg';
 
 const socialLinks = [
   { icon: <FaLinkedinIn />, url: 'https://www.linkedin.com/in/saroja-vuluvabeeti-b736a9203/' },
@@ -93,15 +89,6 @@ export default function Hero() {
       />
 
       <div className="hero-content">
-        {/* ← new image section */}
-        <div className="hero-image-container">
-          <img
-            src={profile1}
-            alt="A smiling software and AI/ML engineer"
-            className="hero-image"
-          />
-        </div>
-
         <h1 className="hero-name">
           Hi, I’m Saroja Vuluvabeeti
         </h1>
