@@ -19,7 +19,7 @@ const socialLinks = [
 // more profile-focused titles
 const movingWords = [
   'Software Engineer',
-  'AI Enigineer',
+  'AI Engineer',
   'Machine Learning engineer',
   'Data Scientist',
   'Data Engineer',

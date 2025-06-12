@@ -83,8 +83,8 @@ html, body {
   letter-spacing: 1px;
 }
 
-.row1 { animation: scroll-left 200s linear infinite; }
-.row2 { animation: scroll-left 200s linear infinite reverse; }
+.row1 { animation: scroll-left 350s linear infinite; }
+.row2 { animation: scroll-left 350s linear infinite reverse; }
 
 @keyframes scroll-left {
   0%   { transform: translateX(0); }
