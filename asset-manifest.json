@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/SarojaVuluvabeeti-/static/css/main.c0377248.css",
-    "main.js": "/SarojaVuluvabeeti-/static/js/main.458396ee.js",
+    "main.css": "/SarojaVuluvabeeti-/static/css/main.b1c1d600.css",
+    "main.js": "/SarojaVuluvabeeti-/static/js/main.63f56d1b.js",
     "static/js/453.acca0757.chunk.js": "/SarojaVuluvabeeti-/static/js/453.acca0757.chunk.js",
     "index.html": "/SarojaVuluvabeeti-/index.html",
-    "main.c0377248.css.map": "/SarojaVuluvabeeti-/static/css/main.c0377248.css.map",
-    "main.458396ee.js.map": "/SarojaVuluvabeeti-/static/js/main.458396ee.js.map",
+    "main.b1c1d600.css.map": "/SarojaVuluvabeeti-/static/css/main.b1c1d600.css.map",
+    "main.63f56d1b.js.map": "/SarojaVuluvabeeti-/static/js/main.63f56d1b.js.map",
     "453.acca0757.chunk.js.map": "/SarojaVuluvabeeti-/static/js/453.acca0757.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c0377248.css",
-    "static/js/main.458396ee.js"
+    "static/css/main.b1c1d600.css",
+    "static/js/main.63f56d1b.js"
   ]
 }
