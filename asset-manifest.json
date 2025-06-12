@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/SarojaVuluvabeeti-/static/css/main.b1c1d600.css",
+    "main.js": "/SarojaVuluvabeeti-/static/js/main.f2f04ef0.js",
+    "static/js/453.acca0757.chunk.js": "/SarojaVuluvabeeti-/static/js/453.acca0757.chunk.js",
+    "index.html": "/SarojaVuluvabeeti-/index.html",
+    "main.b1c1d600.css.map": "/SarojaVuluvabeeti-/static/css/main.b1c1d600.css.map",
+    "main.f2f04ef0.js.map": "/SarojaVuluvabeeti-/static/js/main.f2f04ef0.js.map",
+    "453.acca0757.chunk.js.map": "/SarojaVuluvabeeti-/static/js/453.acca0757.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b1c1d600.css",
+    "static/js/main.f2f04ef0.js"
+  ]
+}
