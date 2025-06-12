@@ -1,15 +1,19 @@
 {
   "files": {
-    "main.css": "/SarojaVuluvabeeti-/static/css/main.b1c1d600.css",
-    "main.js": "/SarojaVuluvabeeti-/static/js/main.f2f04ef0.js",
+    "main.css": "/SarojaVuluvabeeti-/static/css/main.c0377248.css",
+    "main.js": "/SarojaVuluvabeeti-/static/js/main.2d3f0569.js",
     "static/js/453.acca0757.chunk.js": "/SarojaVuluvabeeti-/static/js/453.acca0757.chunk.js",
+    "static/media/profile1.jpg": "/SarojaVuluvabeeti-/static/media/profile1.eee3adf4961eec2d578a.jpg",
+    "static/media/sumit.jpeg": "/SarojaVuluvabeeti-/static/media/sumit.d45c57e14956ade0b7db.jpeg",
+    "static/media/saba.jpeg": "/SarojaVuluvabeeti-/static/media/saba.67b1b2b097efc9f9ec05.jpeg",
+    "static/media/steve.jpeg": "/SarojaVuluvabeeti-/static/media/steve.3170cddec465f651d900.jpeg",
     "index.html": "/SarojaVuluvabeeti-/index.html",
-    "main.b1c1d600.css.map": "/SarojaVuluvabeeti-/static/css/main.b1c1d600.css.map",
-    "main.f2f04ef0.js.map": "/SarojaVuluvabeeti-/static/js/main.f2f04ef0.js.map",
+    "main.c0377248.css.map": "/SarojaVuluvabeeti-/static/css/main.c0377248.css.map",
+    "main.2d3f0569.js.map": "/SarojaVuluvabeeti-/static/js/main.2d3f0569.js.map",
     "453.acca0757.chunk.js.map": "/SarojaVuluvabeeti-/static/js/453.acca0757.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b1c1d600.css",
-    "static/js/main.f2f04ef0.js"
+    "static/css/main.c0377248.css",
+    "static/js/main.2d3f0569.js"
   ]
 }
