@@ -79,6 +79,13 @@ const projectData = [
     description: 'A full-stack nutrition analysis tool that calculates macro and micronutrients from ingredients.',
     link: 'https://github.com/Saroja-4050/nutrition-analyzer'
   },
+  {
+    id: 12,
+    category: 'ai',
+    title: 'Harry Potter Character AI',
+    description: 'A backend and data pipeline for Harry Potter character profiling and chat. Uses ChromaDB for retrieval-augmented generation, Jupyter notebooks for data ingestion and profiling, and a Flask API for interactive character conversations. Includes full-text Harry Potter novels and detailed character profiles.',
+    link: 'https://github.com/Saroja-4050/harry-potter-character-ai'
+  },
 ];
 
 const filters = [
